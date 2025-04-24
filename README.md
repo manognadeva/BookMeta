@@ -38,3 +38,18 @@ python build_faiss.py
 ```bash
 streamlit run app.py
 ```
+## Example Questions
+
+→ Recommend books like The Hunger Games  
+→ When was fault in our stars released? 
+→ How many people rated Twilight?  
+→ Books released in 2020 and rating above 4.0
+
+## Technologies Used
+- Python, Streamlit, LangChain
+
+- Neo4j AuraDB, FAISS
+
+- Gemini LLM (Google Generative AI)
+
+
