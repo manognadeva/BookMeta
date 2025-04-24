@@ -1,13 +1,20 @@
-# BookMeta
+# BookMeta📚
 A conversational **bookbot** that answers questions, finds related titles, and recommends similar books using **LLMs + Neo4j Knowledge Graph + FAISS Vector Search**.
 
 ---
 
-## ⚡ What It Does  
-- 🧠 Understands user queries using a large language model (LLM)  
-- 🔎 Searches a Neo4j **knowledge graph** of books, authors, and tags  
-- 🔍 Uses **semantic similarity** via FAISS when structured search fails  
-- 💬 Delivers answers and recommendations through a **Streamlit chatbot**
+## Brief Idea💡:
+BookMeta allows users to ask natural language questions like:
+
+  “Recommend books like The Hunger Games”
+  
+  “How many people rated Twilight?”
+  
+  “Show fantasy books with high ratings”
+
+The system intelligently routes the query through either a Neo4j-based knowledge graph or a FAISS-powered semantic search engine—based on query type and data availability. It uses Google Gemini (via LangChain) to convert user queries into Cypher queries and dynamically retrieve graph data. If no relevant graph data is found, it gracefully falls back to a vector similarity model.
+
+The end result is a hybrid RAG application deployed on a full-stack Streamlit frontend, complete with user authentication, dynamic query handling, and interactive book discovery.
 
 ---
 
@@ -20,7 +27,31 @@ A conversational **bookbot** that answers questions, finds related titles, and r
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Project Structure
+
+├── app.py
+
+├── agent.py
+
+├── build_faiss.py
+
+├── faiss_search.py
+
+├── load_neo4j.py
+
+├── prompts.py
+
+├── utils.py
+
+├── bookkg_clean_10000.csv
+
+├── faiss_index.bin
+
+├── metadata.pkl
+
+└── users.json
+
+## 🎬 Getting Started
 
 ### 1. Clone & Install  
 ```bash
@@ -33,19 +64,20 @@ python load_neo4j.py
 ### 3. Build FAISS Index
 ```bash
 python build_faiss.py
+python faiss_search.py
 ```
 ### 4. Launch App
 ```bash
 streamlit run app.py
 ```
-## Example Questions
+## 💭 Example Questions
 
 → Recommend books like The Hunger Games  
 → When was fault in our stars released? 
 → How many people rated Twilight?  
 → Books released in 2020 and rating above 4.0
 
-## Technologies Used
+## 🗃️ Technologies Used
 - Python, Streamlit, LangChain
 
 - Neo4j AuraDB, FAISS
